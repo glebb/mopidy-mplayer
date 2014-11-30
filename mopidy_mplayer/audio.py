@@ -86,6 +86,7 @@ class MplayerAudio():
         return Wrap(True)
 
     def prepare_change(self):
+        self.player.stop()
         return Wrap(True)
 
     def set_about_to_finish_callback(self, callback):

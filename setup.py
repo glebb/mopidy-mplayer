@@ -27,6 +27,7 @@ setup(
         'setuptools',
         'Mopidy >= 0.18',
         'Pykka >= 1.1',
+        'mplayer.py >= 0.7'
     ],
     test_suite='nose.collector',
     tests_require=[

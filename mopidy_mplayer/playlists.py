@@ -31,30 +31,34 @@ class MplayerPlaylistsProvider(backend.PlaylistsProvider):
 
     @property
     def playlists(self):
-        result = []
-        tracks = []
-        uris = list(self._config['mplayer']['playlist'])
-        playlist_name = uris.pop(0)
-        playlist = None
-        for uri in uris:
-            if 'mplayer:' in uri:
-                stripped_uri = uri.replace('mplayer:', '')
-            try:
-                data = self._scanner.scan(stripped_uri)
-                track = scan.audio_data_to_track(data).copy(uri=uri)
-            except exceptions.ScannerError as e:
-                logger.warning('Problem looking up %s: %s', uri, e)
+        if not self._playlists:
+            result = []
+            tracks = []
+            uris = list(self._config['mplayer']['playlist'])
+            playlist_name = uris.pop(0)
+            playlist = None
+            for uri in uris:
+                if 'mplayer:' in uri:
+                    stripped_uri = uri.replace('mplayer:', '')
+                '''
+                try:
+                    data = self._scanner.scan(stripped_uri)
+                    track = scan.audio_data_to_track(data).copy(uri=uri)
+                except exceptions.ScannerError as e:
+                    logger.warning('Problem looking up %s: %s', uri, e)
+                    track = Track(uri=uri, name=stripped_uri.split('/')[-1])
+                '''
                 track = Track(uri=uri, name=stripped_uri.split('/')[-1])
-            if track:
-                tracks.append(track)
-        if tracks:
-            playlist = Playlist(uri=playlist_name,
-                                name=playlist_name.replace('mplayer:', ''),
-                                tracks=tuple(tracks))
-        if playlist:
-            result.append(playlist)
+                if track:
+                    tracks.append(track)
+            if tracks:
+                playlist = Playlist(uri=playlist_name,
+                                    name=playlist_name.replace('mplayer:', ''),
+                                    tracks=tuple(tracks))
+            if playlist:
+                result.append(playlist)
 
-        self._playlists = result
+            self._playlists = result
         return self._playlists
 
     def refresh(self):

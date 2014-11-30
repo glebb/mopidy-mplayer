@@ -39,13 +39,13 @@ Before starting Mopidy, you must add configuration for
 Mopidy-Mplayer to your Mopidy configuration file::
 
     [mplayer]
-	enabled = true
-	playlist = mplayer:Radio
-		mplayer:http://83.102.39.40/Radiorock.mp3
-		mplayer:http://rstream2.nelonenmedia.fi/RadioSuomiPop.mp3
-		mplayer:http://icelive0.43660-icelive0.cdn.qbrick.com/4916/43660_radio_city.mp3
-		mplayer:http://icelive0.43660-icelive0.cdn.qbrick.com/9883/43660_RadioJyvaskyla.mp3
-		mplayer:http://icelive0.41168-icelive0.cdn.qbrick.com/5050/41168_radionova1.mp3
+    enabled = true
+    playlist = mplayer:Radio
+        mplayer:http://83.102.39.40/Radiorock.mp3
+        mplayer:http://rstream2.nelonenmedia.fi/RadioSuomiPop.mp3
+        mplayer:http://icelive0.43660-icelive0.cdn.qbrick.com/4916/43660_radio_city.mp3
+        mplayer:http://icelive0.43660-icelive0.cdn.qbrick.com/9883/43660_RadioJyvaskyla.mp3
+        mplayer:http://icelive0.41168-icelive0.cdn.qbrick.com/5050/41168_radionova1.mp3
 
 Project resources
 =================

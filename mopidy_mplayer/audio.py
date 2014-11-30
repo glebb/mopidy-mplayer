@@ -33,9 +33,11 @@ class MplayerAudio():
 
     def get_position(self):
         return Wrap(0)
-
+    '''
     def get_volume(self):
         return Wrap(int(self.player.volume))
+        return Wrap(0)
+    '''
 
     def pause_playback(self):
         if not self.player.paused:
@@ -67,7 +69,7 @@ class MplayerAudio():
         return Wrap(True)
 
     def set_volume(self, volume):
-        self.player.volume = volume
+        #  self.player.volume = volume
         return Wrap(True)
 
     def start_playback(self):

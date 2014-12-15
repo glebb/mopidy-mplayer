@@ -32,7 +32,7 @@ class MplayerAudio():
         return Wrap(self.player.mute)
 
     def get_position(self):
-        return Wrap(0)
+        return Wrap(1)
     '''
     def get_volume(self):
         return Wrap(int(self.player.volume))

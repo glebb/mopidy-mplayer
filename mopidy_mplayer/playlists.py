@@ -2,7 +2,7 @@ from __future__ import unicode_literals
 
 import logging
 
-from mopidy import backend  # , exceptions
+from mopidy import backend, exceptions
 
 from mopidy.audio import scan
 

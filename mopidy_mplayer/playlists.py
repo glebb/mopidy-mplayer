@@ -40,15 +40,15 @@ class MplayerPlaylistsProvider(backend.PlaylistsProvider):
             for uri in uris:
                 if 'mplayer:' in uri:
                     stripped_uri = uri.replace('mplayer:', '')
-                '''
                 try:
                     data = self._scanner.scan(stripped_uri)
-                    track = scan.audio_data_to_track(data).copy(uri=uri)
+                    track = scan.audio_data_to_track(data) #.copy(uri=uri)
                 except exceptions.ScannerError as e:
                     logger.warning('Problem looking up %s: %s', uri, e)
-                    track = Track(uri=uri, name=stripped_uri.split('/')[-1])
+                    track = Track(uri=stripped_uri, name=stripped_uri.split('/')[-1])
                 '''
                 track = Track(uri=stripped_uri, name=stripped_uri.split('/')[-1], length=1)
+                '''
                 if track:
                     tracks.append(track)
             if tracks:

@@ -48,7 +48,7 @@ class MplayerPlaylistsProvider(backend.PlaylistsProvider):
                     logger.warning('Problem looking up %s: %s', uri, e)
                     track = Track(uri=uri, name=stripped_uri.split('/')[-1])
                 '''
-                track = Track(uri=stripped_uri, name=stripped_uri.split('/')[-1])
+                track = Track(uri=stripped_uri, name=stripped_uri.split('/')[-1], length=1)
                 if track:
                     tracks.append(track)
             if tracks:

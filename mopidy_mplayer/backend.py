@@ -19,5 +19,5 @@ class MplayerBackend(pykka.ThreadingActor, backend.Backend):
         self.uri_schemes = ['mplayer']
         #self.playback = MediaplayerPlaybackProvider(audio=self.audio,
         #                                            backend=self)
-        #self.library = MplayerLibraryProvider(backend=self)
+        self.library = MplayerLibraryProvider(backend=self)
         self.playlists = MplayerPlaylistsProvider(backend=self, config=config)

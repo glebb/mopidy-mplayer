@@ -40,6 +40,7 @@ class MplayerPlaylistsProvider(backend.PlaylistsProvider):
             for uri in uris:
                 if 'mplayer:' in uri:
                     stripped_uri = uri.replace('mplayer:', '')
+                '''
                 try:
                     data = self._scanner.scan(stripped_uri)
                     track = scan.audio_data_to_track(data).copy(uri=stripped_uri, length=1)
@@ -48,12 +49,12 @@ class MplayerPlaylistsProvider(backend.PlaylistsProvider):
                     track = Track(uri=stripped_uri, name=stripped_uri.split('/')[-1], length=1)
                 '''
                 track = Track(uri=stripped_uri, name=stripped_uri.split('/')[-1], length=1)
-                '''
+
                 if track:
                     tracks.append(track)
             if tracks:
-                playlist = Playlist(name=playlist_name.replace('mplayer:', ''), #uri=playlist_name,
-                                    tracks=tuple(tracks))
+                playlist = Playlist(name=playlist_name.replace('mplayer:', ''), #
+                                    tracks=tuple(tracks), uri=playlist_name)
             if playlist:
                 result.append(playlist)
 

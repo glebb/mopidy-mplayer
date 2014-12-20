@@ -20,10 +20,16 @@ class MplayerLibraryProvider(backend.LibraryProvider):
     def lookup(self, uri):
         if 'mplayer:' in uri:
             stripped_uri = uri.replace('mplayer:', '')
+            name = stripped_uri.split('/')
+            if len(name) > 1:
+                track = Track(uri=stripped_uri, name = name[-1], length = 1)
+                return [track]
+            '''
             try:
                 data = self._scanner.scan(stripped_uri)
                 track = scan.audio_data_to_track(data).copy(uri=uri)
             except exceptions.ScannerError as e:
                 logger.warning('Problem looking up %s: %s', uri, e)
                 track = Track(uri=uri, name=stripped_uri.split('/')[-1])
-            return [track]
+            '''
+            return []

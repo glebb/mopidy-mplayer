@@ -13,7 +13,7 @@ class MplayerBackend(pykka.ThreadingActor, backend.Backend):
     def __init__(self, config, audio):
         super(MplayerBackend, self).__init__()
         #from .audio import MplayerAudio
-        #from .library import MplayerLibraryProvider
+        from .library import MplayerLibraryProvider
         from .playlists import MplayerPlaylistsProvider
         #self.audio = MplayerAudio(config)
         self.uri_schemes = ['mplayer']
